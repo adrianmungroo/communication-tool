@@ -1,0 +1,20 @@
+[theme]
+primaryColor = "#1E88E5"  # A blue shade that matches your existing color scheme
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F8FF"  # Matching your current panel background
+textColor = "#262730"
+font = "sans serif"
+base = "light"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+enableCORS = false
+
+[ui]
+hideTopBar = true
+
+[client]
+toolbarMode = "minimal"
+showSidebarNavigation = false
