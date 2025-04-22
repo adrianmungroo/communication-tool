@@ -34,7 +34,7 @@ with st.sidebar:
         st.markdown('<a href="Local_Generation" class="nav-link" target="_self"><span class="nav-icon">☀️</span> Local Generation and Storage</a>', unsafe_allow_html=True)
     
     if os.path.exists(os.path.join(os.path.dirname(__file__), "3_Energy_Grid.py")):
-        st.markdown('<a href="Energy_Grid" class="nav-link" target="_self"><span class="nav-icon">🔌</span> Our Energy Grid</a>', unsafe_allow_html=True)
+        st.markdown('<a href="Energy_Grid" class="nav-link" target="_self"><span class="nav-icon">🔌</span> Grid Under Pressure</a>', unsafe_allow_html=True)
     
     if current_page == "4_Looking_Future.py":
         st.markdown('<a href="Looking_Future" class="nav-link active" target="_self"><span class="nav-icon">🔮</span> Looking to the Future</a>', unsafe_allow_html=True)
