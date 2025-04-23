@@ -19,37 +19,15 @@ st.set_page_config(
 # Load custom CSS
 load_css()
 
-# Custom sidebar navigation
-with st.sidebar:
-    
-    # Get current page name
-    current_page = os.path.basename(__file__)
-    
-    # Navigation links with icons
-    st.markdown('<a href="." class="nav-link" target="_self"><span class="nav-icon">🏠</span> Defining Atlanta</a>', unsafe_allow_html=True)
-    
-    if current_page == "1_Energy_Efficiency.py":
-        st.markdown('<a href="Energy_Efficiency" class="nav-link active" target="_self"><span class="nav-icon">🔋</span> Energy Efficiency</a>', unsafe_allow_html=True)
-    else:
-        st.markdown('<a href="Energy_Efficiency" class="nav-link" target="_self"><span class="nav-icon">🔋</span> Energy Efficiency</a>', unsafe_allow_html=True)
-    
-    if os.path.exists(os.path.join(os.path.dirname(__file__), "2_Local_Generation.py")):
-        st.markdown('<a href="Local_Generation" class="nav-link" target="_self"><span class="nav-icon">☀️</span> Local Generation and Storage</a>', unsafe_allow_html=True)
-    
-    if os.path.exists(os.path.join(os.path.dirname(__file__), "3_Energy_Grid.py")):
-        st.markdown('<a href="Energy_Grid" class="nav-link" target="_self"><span class="nav-icon">🔌</span> Grid Under Pressure</a>', unsafe_allow_html=True)
-    
-    if os.path.exists(os.path.join(os.path.dirname(__file__), "4_Looking_Future.py")):
-        st.markdown('<a href="Looking_Future" class="nav-link" target="_self"><span class="nav-icon">🔮</span> Looking to the Future</a>', unsafe_allow_html=True)
-    
-    # Additional sidebar information
-    st.markdown("<hr>", unsafe_allow_html=True)
-    st.markdown("### About", unsafe_allow_html=True)
-    st.info("This dashboard provides insights into Atlanta's energy ecosystem and explores strategies for a sustainable future.")
-    
-    # Optional: Add contact or help information
-    with st.expander("Need Help?"):
-        st.write("Learn more at: https://energyshed.research.gatech.edu/")
+# Import the sidebar module
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from sidebar import create_sidebar
+
+# Store current page in session state for sidebar to access
+st.session_state['current_page'] = __file__
+
+# Create the sidebar with the current page name
+create_sidebar(os.path.basename(__file__))
 
 ######################## PAGE CONTENT ########################
 
