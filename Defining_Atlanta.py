@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import os
 from styles import load_css
+import base64
 
 # Set page config
 st.set_page_config(
@@ -14,18 +15,6 @@ st.set_page_config(
 
 # Load custom CSS with page name for specific styling
 load_css(page_name="Defining_Atlanta")
-
-# Set up the background image
-img_path = os.path.join(os.getcwd(), "assets", "atlanta.jpg")
-
-# Read the image file as bytes
-with open(img_path, "rb") as f:
-    img_bytes = f.read()
-
-# Apply background image using CSS with base64 encoding
-import base64
-img_base64 = base64.b64encode(img_bytes).decode()
-
 
 # Import the sidebar module
 from sidebar import create_sidebar
