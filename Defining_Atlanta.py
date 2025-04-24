@@ -31,6 +31,8 @@ create_sidebar(os.path.basename(__file__))
 energydef_path = os.path.join(os.getcwd(), "assets", "energyshed_define.png")
 supply_path = os.path.join(os.getcwd(), "assets", "supply_area.png")
 demand_path = os.path.join(os.getcwd(), "assets", "demand_area.png")
+how_it_is_changing_path = os.path.join(os.getcwd(), "assets", "defining_atlanta_how_changing.png")
+looking_forward_path = os.path.join(os.getcwd(), "assets", "defining_atlanta_looking_forward.png")
 
 # Read the image files as bytes and convert to base64
 with open(energydef_path, "rb") as f:
@@ -45,13 +47,21 @@ with open(demand_path, "rb") as f:
     demand_bytes = f.read()
 demand_base64 = base64.b64encode(demand_bytes).decode()
 
+with open(how_it_is_changing_path, "rb") as f:
+    how_it_is_changing_bytes = f.read()
+how_it_is_changing_base64 = base64.b64encode(how_it_is_changing_bytes).decode()
+
+with open(looking_forward_path, "rb") as f:
+    looking_forward_bytes = f.read()
+looking_forward_base64 = base64.b64encode(looking_forward_bytes).decode()
+
 # Create two columns for the main content
 col1, col2 = st.columns([1, 2])
 
 with col1:
     # Left column - Defining Atlanta's Energyshed
     st.markdown("""
-    <h1 style="color: #1E5C8E; margin-bottom: 1.5rem;">Defining Atlanta's Energyshed</h1>
+    <h1 style="color: #1E5C8E; margin-bottom: 1.5rem;">Defining Atlanta's <br> Energyshed</h1>
     """, unsafe_allow_html=True)
     
     st.markdown("""
@@ -79,17 +89,13 @@ with col1:
 with col2:
     # Right column - Supply and Demand
     st.markdown("""
-    <h1 style="color: #1E5C8E; margin-bottom: 1.5rem;">Supply and Demand</h1>
+    <h1 style="color: #1E5C8E; margin-bottom: 1.5rem;">Supply and Demand <br> of Energy</h1>
     """, unsafe_allow_html=True)
     
     st.markdown("""
     <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
         <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.6;">
-            Much like how distant streams and various sources affect water use, Atlanta's 
-            energyshed supply network stretches far beyond Atlanta borders, 
-            encompassing power plants, transmission lines, and fuel sources from across 
-            multiple states, creating a complex web of interdependencies that impact the 
-            city's energy resilience, pricing, and environmental footprint.
+            Much like highly developed urban areas, metropolitan Atlanta is a consumption “island”, and its energy demand is met by its Energyshed supply network that stretches far beyond Atlanta borders, encompassing power plants, transmission lines, and fuel sources from across multiple states. The city's energy resilience, pricing, and environmental footprint should be understood in this broader context. 
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -104,7 +110,7 @@ with col2:
             <img src="data:image/png;base64,{supply_base64}" 
                  style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
                  alt="Supply Area">
-            <p style="text-align: center; margin-top: 10px; font-weight: bold;">Supply</p>
+            <p style="text-align: center; margin-top: 10px; font-weight: bold;">Balancing Authority of Energy Supply and Demand</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -115,7 +121,7 @@ with col2:
             <img src="data:image/png;base64,{demand_base64}" 
                  style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
                  alt="Demand Area">
-            <p style="text-align: center; margin-top: 10px; font-weight: bold;">Demand</p>
+            <p style="text-align: center; margin-top: 10px; font-weight: bold;">High demand metro Atlanta area</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -123,33 +129,32 @@ with col2:
 st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
 
 # How It's Changing section
-st.markdown("""
-<h1 style="text-align: center; color: #1E5C8E; margin-bottom: 1.5rem;">How It's Changing</h1>
+# Use columns for responsive layout - will stack on mobile automatically
+col1, col2 = st.columns([1, 3])
 
-<div style="background-color: rgba(240, 248, 255, 0.8); padding: 25px; border-radius: 5px; margin-bottom: 2.5rem;">
-    <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.6; text-align: justify;">
-        Our metropolitan area stands at a pivotal moment in its energy evolution. The growing population and urban development 
-        are creating more complex energy needs, while emerging technologies are simultaneously transforming both energy 
-        demand and supply patterns. The rapid expansion of energy-intensive data centers, aging grid infrastructure requiring 
-        modernization, and the challenge of retrofitting existing commercial and residential buildings for greater efficiency are 
-        reshaping our energy landscape. Meanwhile, peak demand management and building electrification present both 
-        challenges and opportunities for a more resilient system.
-    </p>
-</div>
+with col1:
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="data:image/png;base64,{how_it_is_changing_base64}" 
+             style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             alt="How It's Changing">
+    </div>
+    """, unsafe_allow_html=True)
 
-<h1 style="text-align: center; color: #1E5C8E; margin-bottom: 1.5rem;">Looking Forward</h1>
+with col2:
+    st.markdown("""
+    <h2 style="color: #1E5C8E; margin-bottom: 0.75rem;">How It's Changing</h2>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.6;">
+            The metropolitan area stands at a pivotal moment in its energy evolution. The growing population and urban development are creating more complex energy needs, while emerging technologies are simultaneously transforming both energy demand and supply patterns. The rapid expansion of energy-intensive data centers, aging grid infrastructure requiring modernization, and the challenge of retrofitting existing commercial and residential buildings for greater efficiency are reshaping our energy landscape. Meanwhile, peak demand management and building electrification present both challenges and opportunities for a more resilient system.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-<div style="background-color: rgba(240, 248, 255, 0.8); padding: 25px; border-radius: 5px; margin-bottom: 1rem;">
-    <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.6; text-align: justify;">
-        This tool helps visualize how energy is moved through space, who produces it, who consumes it, and how local decisions 
-        shape our shared energy future. <br><br>
-        Users can explore how different energy strategies—from building retrofits to distributed solar deployment to grid 
-        modernization—can impact Atlanta's energy future.
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
-# Add a divider before the 3-row format content
+# Add a divider before the 3-column format content
 st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
 
 # Load the required images for the 3-row format
@@ -191,7 +196,7 @@ with col1:
     # Energy efficiency text
     st.markdown("""
     <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
-        <p style="font-size: 0.9rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
             Energy efficiency improvements are vital for a more resilient and affordable energy use as demand increases. Heat pumps provide efficient heating and cooling, reducing energy use by up to 50%. Building envelope improvements—better insulation, air sealing, and high-performance windows—minimize waste and improve comfort.
         </p>
     </div>
@@ -215,7 +220,7 @@ with col2:
     # Local generation text
     st.markdown("""
     <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
-        <p style="font-size: 0.9rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
             Distributed energy resources are changing Atlanta's electricity landscape. Rooftop solar enables on-site clean energy production, while battery storage systems preserve excess generation for evening use or outages. Electric vehicles double as grid resources through bidirectional charging capabilities.
         </p>
     </div>
@@ -239,94 +244,38 @@ with col3:
     # Grid impacts text
     st.markdown("""
     <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
-        <p style="font-size: 0.9rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
             Atlanta's grid faces new demands from growing data centers and changing energy flows. Rather than one-way delivery from large power plants, our grid must now manage two-way power flows from distributed solar, batteries, and electric vehicles.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-# Add a divider before the Key Concepts section
+# Add a divider before the Looking Forward section
 st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
 
-# Key Concepts section header
-st.markdown("<h1 style='text-align: center; color: #1E5C8E; margin-bottom: 2rem;'>Key Concepts</h1>", unsafe_allow_html=True)
+# Looking Forward section header
+col1, col2 = st.columns([1, 3])
 
-# Main concept banner
-st.markdown("""
-<div style="background-color: #F0F8FF; padding: 1rem; border-radius: 5px; margin-bottom: 2rem; text-align: center;">
-    <div style="font-size: 1.5rem; color: #1E5C8E; line-height: 1.6;">
-        Energy is not only about <span style="color: #d9534f; font-weight: bold; font-style: italic;">HOW MUCH</span> you use, but <span style="color: #d9534f; font-weight: bold; font-style: italic;">WHEN</span> you use it
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-# Create three columns for the content
-left_col, middle_col, right_col = st.columns([1, 2, 1])
-
-# Left column content
-with left_col:
-    st.markdown("""
-    <div style="background-color: #F0F8FF; padding: 15px; border-radius: 5px; margin-bottom: 1rem;">
-        <div style="color: #1E5C8E; font-size: 1.2rem;">
-            Look at an example where we generate a large amount of solar energy => BUT we can only use some of it
-        </div>
-    </div>
-    <div style="background-color: #F0F8FF; padding: 15px; border-radius: 5px; margin-bottom: 1rem;">
-        <div style="color: #1E5C8E; font-size: 1.2rem;">
-            We don't use energy at the same <span style="color: #d9534f;">rate</span> we generate it
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-# Middle column - Energy usage graph
-with middle_col:
-    # Load the energy usage graph image
-    energy_graph_path = os.path.join(os.getcwd(), "assets", "energy_usage_graph.jpg")
-    
-    # Read the image file as bytes
-    with open(energy_graph_path, "rb") as f:
-        graph_bytes = f.read()
-    
-    # Convert to base64 for embedding in HTML
-    graph_base64 = base64.b64encode(graph_bytes).decode()
-    
-    # Use custom HTML to display the image without fullscreen button
+with col1:
     st.markdown(f"""
-    <div style="text-align: center;">
-        <img src="data:image/jpg;base64,{graph_base64}" 
-             style="max-width: 100%; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
-             alt="Energy Usage Graph">
+    <div style="text-align: center; margin-top: 2rem;">
+        <img src="data:image/png;base64,{looking_forward_base64}" 
+             style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             alt="Looking Forward">
     </div>
     """, unsafe_allow_html=True)
 
-# Right column content
-with right_col:
+with col2:
     st.markdown("""
-    <div style="background-color: #F0F8FF; padding: 15px; border-radius: 5px; margin-bottom: 1rem;">
-        <div style="color: #1E5C8E; font-size: 1.2rem;">
-            What are some solutions?
-        </div>
-    </div>
+    <h2 style="color: #1E5C8E; margin-bottom: 0.75rem;">Looking Forward</h2>
     """, unsafe_allow_html=True)
     
     st.markdown("""
-    <div style="background-color: #F0F8FF; padding: 15px; border-radius: 5px; margin-bottom: 1rem;">
-        <div style="color: #d9534f; font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">
-            STORE IT
-        </div>
-        <div>
-            A simple solution is batteries! Just store the energy and use it later. There are other types of storage, like using heat or potential energy.
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    st.markdown("""
-    <div style="background-color: #F0F8FF; padding: 15px; border-radius: 5px; margin-bottom: 1rem;">
-        <div style="color: #d9534f; font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">
-            MIX IT
-        </div>
-        <div>
-            Different energy sources have their own distinct energy profiles. Local generation, like solar or wind, are dependent on the environment, while fossil-fuel based generation can be ramped up and down based on need. Nuclear, on the other hand, is generally constant.
-        </div>
+    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.6;">
+            This tool helps visualize how energy is moved through space, who produces it, who consumes it, and how local decisions shape our shared energy future. 
+            <br><br>
+            Users can explore how different energy strategies—from building retrofits to distributed solar deployment to grid modernization—can impact Atlanta's energy future.
+        </p>
     </div>
     """, unsafe_allow_html=True)
