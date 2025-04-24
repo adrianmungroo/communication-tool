@@ -16,8 +16,8 @@ st.set_page_config(
 # Load custom CSS with page name for specific styling
 load_css(page_name="Defining_Atlanta")
 
-# Import the sidebar module
-from sidebar import create_sidebar
+# Import shared components
+from shared_components import create_sidebar
 
 # Store current page in session state for sidebar to access
 st.session_state['current_page'] = __file__

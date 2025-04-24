@@ -1,6 +1,16 @@
 import streamlit as st
 import os
 
+def show_wip_warning():
+    """
+    Display a warning popup indicating that the page is a work in progress.
+    This should be called on all pages except the main Defining Atlanta page.
+    """
+    st.warning(
+        "⚠️ **Work in Progress** ⚠️\n\n"
+        "#### This page is currently under development and not yet complete. "
+    )
+
 def create_sidebar(current_page=None):
     """
     Creates a consistent sidebar for the Atlanta Energyshed application.

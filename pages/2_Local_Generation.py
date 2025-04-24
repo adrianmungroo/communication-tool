@@ -20,15 +20,18 @@ st.set_page_config(
 load_css()
 
 
-# Import the sidebar module
+# Import shared components
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from sidebar import create_sidebar
+from shared_components import create_sidebar, show_wip_warning
 
 # Store current page in session state for sidebar to access
 st.session_state['current_page'] = __file__
 
 # Create the sidebar with the current page name
 create_sidebar(os.path.basename(__file__))
+
+# Show work-in-progress warning
+show_wip_warning()
 
 ######################## PAGE CONTENT ########################
 
