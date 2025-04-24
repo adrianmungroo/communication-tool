@@ -188,7 +188,7 @@ with col1:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 15px;">
         <img src="data:image/png;base64,{efficiency_base64}" 
-             style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+             style="width: 100%; height: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
              alt="Energy Efficiency Measures">
     </div>
     """, unsafe_allow_html=True)
@@ -198,6 +198,9 @@ with col1:
     <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
         <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
             Energy efficiency improvements are vital for a more resilient and affordable energy use as demand increases. Heat pumps provide efficient heating and cooling, reducing energy use by up to 50%. Building envelope improvements—better insulation, air sealing, and high-performance windows—minimize waste and improve comfort.
+            <br>
+            <br>
+            <a href="https://www.energy.gov/energysaver/energy-saver" style="color: #1E5C8E; font-weight: bold;">CLICK for more info</a>
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -212,7 +215,7 @@ with col2:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 15px;">
         <img src="data:image/png;base64,{local_gen_base64}" 
-             style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+             style="width: 100%; height: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
              alt="Local Generation and Storage">
     </div>
     """, unsafe_allow_html=True)
@@ -222,6 +225,9 @@ with col2:
     <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
         <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
             Distributed energy resources are changing Atlanta's electricity landscape. Rooftop solar enables on-site clean energy production, while battery storage systems preserve excess generation for evening use or outages. Electric vehicles double as grid resources through bidirectional charging capabilities.
+            <br>
+            <br>
+            <a href="https://www.energy.gov/eere/solar/articles/solar-plus-storage-101" style="color: #1E5C8E; font-weight: bold;">CLICK for more info</a>
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -236,7 +242,7 @@ with col3:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 15px;">
         <img src="data:image/png;base64,{grid_base64}" 
-             style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+             style="width: 100%; height: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
              alt="Electric Grid Impacts">
     </div>
     """, unsafe_allow_html=True)
@@ -246,6 +252,9 @@ with col3:
     <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
         <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
             Atlanta's grid faces new demands from growing data centers and changing energy flows. Rather than one-way delivery from large power plants, our grid must now manage two-way power flows from distributed solar, batteries, and electric vehicles.
+            <br>
+            <br>
+            <a href="https://www.energy.gov/smart-grid" style="color: #1E5C8E; font-weight: bold;">CLICK for more info</a>
         </p>
     </div>
     """, unsafe_allow_html=True)
