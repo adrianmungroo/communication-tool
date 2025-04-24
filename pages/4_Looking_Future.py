@@ -13,7 +13,7 @@ st.set_page_config(
     page_title="Looking to Future | Atlanta Energyshed",
     page_icon="⚡",
     layout="wide",
-    initial_sidebar_state="expanded"  # Always show sidebar by default
+    initial_sidebar_state="collapsed"  # Start with sidebar collapsed
 )
 
 # Load custom CSS

@@ -10,7 +10,7 @@ st.set_page_config(
     page_title="Atlanta Energyshed",
     page_icon="⚡",
     layout="wide",
-    initial_sidebar_state="expanded"  # Always show sidebar by default
+    initial_sidebar_state="collapsed"  # Start with sidebar collapsed
 )
 
 # Load custom CSS with page name for specific styling

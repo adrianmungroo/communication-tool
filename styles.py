@@ -10,6 +10,7 @@ def load_css(page_name=None):
     """
     st.markdown('''
     <style>
+        /* Sidebar styling */
         .sidebar .sidebar-content {
             background-color: #f5f5f5;
         }
@@ -24,6 +25,47 @@ def load_css(page_name=None):
             transition: background-color 0.3s;
             margin-bottom: 8px;
             font-weight: 500;
+        }
+        
+        /* Make the sidebar collapse/expand button more visible */
+        button[kind="header"] {
+            background-color: #1E5C8E !important;
+            color: white !important;
+            border-radius: 50%;
+            width: 40px !important;
+            height: 40px !important;
+            position: fixed;
+            top: 7%;
+            left: 1%;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        /* Add a floating menu button when sidebar is collapsed */
+        [data-testid="collapsedControl"] {
+            background-color: #1E5C8E !important;
+            color: white !important;
+            border-radius: 50%;
+            width: 50px !important;
+            height: 50px !important;
+            position: fixed;
+            top: 7%;
+            left: 1%;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 24px !important;
+        }
+        
+        /* Make the arrow icon larger */
+        [data-testid="collapsedControl"] svg {
+            width: 24px !important;
+            height: 24px !important;
         }
         .nav-link:hover {
             background-color: #e0e0e0;
