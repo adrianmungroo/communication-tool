@@ -35,7 +35,7 @@ def load_css(page_name=None):
             width: 40px !important;
             height: 40px !important;
             position: fixed;
-            top: 7%;
+            top: 5%;
             left: 1%;
             z-index: 999;
             display: flex;
