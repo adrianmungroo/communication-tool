@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import os
 import sys
+import base64
 
 # Add parent directory to path to import styles
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
@@ -37,161 +38,185 @@ show_wip_warning()
 # Load the required images
 from PIL import Image
 
-# First part images
-ee_seasonal_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "ee_seasonal.png")
-ee_emissions_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "ee_emissions.png")
+# Image Paths
+ee_house_path = r"assets\ee_house.png"
+ee_envelope_eui_path = r"assets\ee_envelope_eui.png"
+ee_seasonal_energy_use_path = r"assets\ee_seasonal_energy_use.png"
+ee_annual_energy_use_path = r"assets\ee_annual_energy_use.png"
+ee_what_if_path = r"assets\ee_what_if.png"
+ee_savings_path = r"assets\ee_savings.png"
 
-# Second part images
-ee_pie_typical_home_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "ee_pie_typical_home.jpg")
-ee_pie_contribution_savings_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "ee_pie_contribution_savings.png")
-ee_pie_contribution_stress_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "ee_pie_contribution_stress.png")
-ee_pie_stress_reduction_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "ee_pie_stress_reduction.png")
+# Load the images as bytes and convert to base64
+with open(ee_house_path, "rb") as f:
+    ee_house_bytes = f.read()
+    ee_house_base64 = base64.b64encode(ee_house_bytes).decode()
 
-# Load the images using PIL
-ee_seasonal_img = Image.open(ee_seasonal_path)
-ee_emissions_img = Image.open(ee_emissions_path)
-ee_pie_typical_home_img = Image.open(ee_pie_typical_home_path)
-ee_pie_contribution_savings_img = Image.open(ee_pie_contribution_savings_path)
-ee_pie_contribution_stress_img = Image.open(ee_pie_contribution_stress_path)
-ee_pie_stress_reduction_img = Image.open(ee_pie_stress_reduction_path)
+with open(ee_envelope_eui_path, "rb") as f:
+    ee_envelope_eui_bytes = f.read()
+    ee_envelope_eui_base64 = base64.b64encode(ee_envelope_eui_bytes).decode()   
 
-# Create three columns for the main content
-col1, col2, col3 = st.columns([1, 1, 1])
+with open(ee_seasonal_energy_use_path, "rb") as f:
+    ee_seasonal_energy_use_bytes = f.read()
+    ee_seasonal_energy_use_base64 = base64.b64encode(ee_seasonal_energy_use_bytes).decode()
 
-# First column - Energy Efficiency
+with open(ee_annual_energy_use_path, "rb") as f:
+    ee_annual_energy_use_bytes = f.read()
+    ee_annual_energy_use_base64 = base64.b64encode(ee_annual_energy_use_bytes).decode()
+
+with open(ee_what_if_path, "rb") as f:
+    ee_what_if_bytes = f.read()
+    ee_what_if_base64 = base64.b64encode(ee_what_if_bytes).decode()
+
+with open(ee_savings_path, "rb") as f:
+    ee_savings_bytes = f.read()
+    ee_savings_base64 = base64.b64encode(ee_savings_bytes).decode()
+
+col1, col2 = st.columns([1, 2])
+
 with col1:
     st.markdown("""
-    <h2 style="color: #1E5C8E; margin-bottom: 1.5rem;">Energy Efficiency</h2>
-    """, unsafe_allow_html=True)
-    
+        <h2 style="color: #1E5C8E; margin-bottom: 0.75rem;">Energy Efficiency</h2>
+        """, unsafe_allow_html=True)
+
     st.markdown("""
-    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
-        <p style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6;">
-            Energy efficiency is defined as the ratio of useful heat output to energy input. In Atlanta, about 65% of homes use natural gas for space and water heating, 25% rely on electric resistance heating, and fewer than 10% use heat pumps. Traditional gas systems operate at 70-90% efficiency, and electric resistance heating at ~95%, but heat pumps achieve 250-400% efficiency by moving heat rather than generating it.
-        </p>
-        <p style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6; margin-top: 10px;">
-            Replacing older systems with heat pumps, combined with envelope upgrades like insulation and air sealing, can reduce a home's Energy Use Intensity (EUI) from ~70 to ~50 kBtu/ft²/year — a 30% improvement. Heat pump water heaters also cut emissions by over 26%, offering a scalable path to cost-effective, low-carbon housing.
+    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+            Energy efficiency means doing the same tasks while using less energy. In Atlanta homes, this includes simple actions like switching to LED bulbs, upgrading to energy-efficient appliances, and using smart thermostats. Many older homes lose energy through poor insulation and outdated systems, but these can be improved. Adding insulation, sealing leaks, and installing heat pumps can make homes significantly more efficient. These upgrades lower utility bills, ease demand on the power grid, and cut greenhouse gas (GHG) emissions, aligning with Atlanta’s sustainability goals.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-# Second column - Heat Pumps and Housing Envelope
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px;">
+        <img src="data:image/png;base64,{ee_house_base64}" 
+             style="width: 60%; height: auto; border-radius: 10px;" 
+             alt="Energy efficient home with sustainable features">
+    </div>
+    """, unsafe_allow_html=True)
+
 with col2:
     st.markdown("""
-    <h2 style="color: #1E5C8E; margin-bottom: 1.5rem;">What are Heat Pumps?</h2>
+    <h2 style="color: #1E5C8E; margin-bottom: 0.75rem;">What do we mean by Housing Envelope?</h2>
     """, unsafe_allow_html=True)
     
     st.markdown("""
-    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
-        <p style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6;">
-            Heat pumps use electricity to move heat rather than generate it, bringing warmth indoors during winter and cooling during summer. In Atlanta's hot-humid climate, they offer an efficient all-electric alternative to natural gas systems. While traditional heating systems deliver less than 1 unit of heat per unit of fuel, heat pumps provide 2.5 to 4 units of heat per unit of electricity, leading to 30% lower energy use annually as shown in the graph.
-        </p>
-        <p style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6; margin-top: 10px;">
-            Though the upfront cost is higher, the running cost is comparable to natural gas, with lower emissions and greater seasonal efficiency.
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    st.markdown("""
-    <h2 style="color: #1E5C8E; margin-top: 1.5rem; margin-bottom: 1.5rem;">What do we mean by Housing Envelope?</h2>
-    """, unsafe_allow_html=True)
-    
-    st.markdown("""
-    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px;">
-        <p style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6;">
-            The home envelope is the physical barrier formed by walls, roof, windows, doors, and foundation that controls heat, air, and moisture flow. It plays a critical role in energy efficiency by reducing energy loss and maintaining indoor comfort. In Atlanta homes, poor insulation and air leakage alone account for over 50% of elevated Energy Use Intensity (EUI).
+    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+            The housing envelope is the outer structure of your home i.e. walls, roof, windows, floor, and foundation. It controls how much heat, air and moisture enters or escapes your house. When the envelope is poorly insulated or have leakage, it leads to higher energy bills and discomfort.
+            <br><br>
+            Fixing the envelope by adding insulation, sealing leaks, and upgrading windows can reduce EUI by 20-30% in Atlanta houses:
+            <ul style="margin-top: 10px; margin-bottom: 5px; padding-left: 25px;">
+                <li>Pre-1980: 70 kBtu/ft²/year, with upgrades: 45 kBtu/ft²/year</li>
+                <li>1980-2020: 55 kBtu/ft²/year, with upgrades: 38 kBtu/ft²/year</li> 
+                <li>2020-Now: 28 kBtu/ft²/year, with upgrades: 24 kBtu/ft²/year (Limited savings potential)</li>
+            </ul>
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-# Third column - Images
-with col3:
-    # Add some spacing to align with the text
-    st.markdown("<div style='margin-top: 4.5rem;'></div>", unsafe_allow_html=True)
-    
-    # Display the seasonal usage graph using Streamlit's native image display
-    st.image(ee_seasonal_img, use_column_width=True, caption="")
-    
-    # Add some spacing between images
-    st.markdown("<div style='margin-top: 1.5rem;'></div>", unsafe_allow_html=True)
-    
-    # Display the emissions image using Streamlit's native image display
-    st.image(ee_emissions_img, use_column_width=True, caption="")
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+        <img src="data:image/png;base64,{ee_envelope_eui_base64}" 
+             style="width: 90%; height: auto; border-radius: 10px;" 
+             alt="Housing envelope energy usage intensity (EUI) comparison by construction era">
+    </div>
+    """, unsafe_allow_html=True)
 
-# Add a divider before the second part
+# Add a divider
 st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
 
-# SECOND PART - First row with 3 columns
+col1, col2 = st.columns([2, 3])
 
-# First row - 3 columns
-col1_row1, col2_row1, col3_row1 = st.columns([1, 1, 1])
-
-# Column 1 - Typical Home Energy Use
-with col1_row1:
+with col1:
     st.markdown("""
-    <h2 style="color: #1E5C8E; margin-bottom: 1.5rem;">Typical Home Energy <br>Use</h2>
+    <h2 style="color: #1E5C8E; margin-bottom: 0.75rem;">What are Heat Pumps?</h2>
     """, unsafe_allow_html=True)
     
     st.markdown("""
-    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
-        <p style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6;">
-            Atlanta homes primarily consume energy for heating/cooling (40%), followed by water heating, electronics, and lighting. Inefficiencies in HVAC systems, insulation, and windows contribute to high Energy Use Intensity (EUI) ~70 kBtu/ft²/year in older homes.
+    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+            Heat pumps transfer heat instead of generating it. In the winter, they bring heat inside from the air outside, and in the summer, they remove heat from your home.
+            <br><br>
+            Compared to gas furnaces and resistive electric heaters, heat pumps are 2.5 to 4 times more efficient. In Atlanta’s mild winters, they work especially well year-round. Replacing older systems with heat pumps can reduce heating energy use by up to 70%.Line graph shows monthly energy consumption for a typical 2020-era Atlanta home with and without heat pump.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-# Column 2 - Improvements & Smart Technologies
-with col2_row1:
+with col2:
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+        <img src="data:image/png;base64,{ee_seasonal_energy_use_base64}" 
+             style="width: 90%; height: auto; border-radius: 10px;" 
+             alt="Seasonal energy consumption comparison with and without heat pump">
+    </div>
+    """, unsafe_allow_html=True)
+
+# Add a divider
+st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
+
+col1, col2 = st.columns([2, 3])
+
+with col1:
     st.markdown("""
-    <h2 style="color: #1E5C8E; margin-bottom: 1.5rem;">Improvements & Smart Technologies</h2>
+    <h2 style="color: #1E5C8E; margin-bottom: 0.75rem;">Why Efficiency Upgrades Matter?</h2>
     """, unsafe_allow_html=True)
     
     st.markdown("""
-    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
-        <p style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6;">
-            Upgrades like solar PV (30%), heat pumps (20%), and window insulation (20%) significantly reduce energy demand. Smart thermostats, EV smart charging, and IoT-based occupancy lighting (each ~10%) further optimize usage, collectively achieving up to 30% EUI reduction.
+    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+            Older homes waste energy through poor insulation, air leaks, and outdated systems. Upgrading the building envelope and switching to efficient heat pumps can nearly cut energy use in half and significantly reduce carbon emissions.
+            <br><br>
+            A bar chart compares annual energy use and shows how emissions drop with upgrades.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-# Column 3 - Contribution of Smart & Sustainable Technologies pie chart
-with col3_row1:
-    # Add some spacing to align with the text
-    st.markdown("<div style='margin-top: 4.5rem;'></div>", unsafe_allow_html=True)
-    
-    # Display the contribution savings pie chart
-    st.image(ee_pie_contribution_savings_img, use_column_width=True, caption="")
-
-# Second row - 2 columns
-col1_row2, col2_row2 = st.columns([1, 2])
-
-# Column 1 - Typical Home Energy Use pie chart
-with col1_row2:
-    # Display the typical home energy use pie chart
-    st.image(ee_pie_typical_home_img, use_column_width=True, caption="")
-    st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #666;'>Source: EIA, NREL, ENERGY STAR, and Georgia Power data estimates</p>", unsafe_allow_html=True)
-
-# Column 2 - Grid Stress Reduction with 2 sub-columns for charts
-with col2_row2:
-    st.markdown("""
-    <h2 style="color: #1E5C8E; margin-bottom: 1.5rem;">Grid Stress Reduction</h2>
+with col2:
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+        <img src="data:image/png;base64,{ee_annual_energy_use_base64}" 
+             style="width: 70%; height: auto; border-radius: 10px;" 
+             alt="Annual energy usage and emissions reduction with efficiency upgrades">
+    </div>
     """, unsafe_allow_html=True)
-    
+
+# Add a divider
+st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
+
+col1, col2 = st.columns([2, 3]) 
+
+with col1:
     st.markdown("""
-    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
-        <p style="font-size: 0.95rem; color: #2c3e50; line-height: 1.6;">
-            During peak summer demand, Atlanta homes can draw 5-10 kW each, stressing the grid. Smart scheduling, envelope upgrades, and load-shifting via EVs and heat pumps can lower this peak by up to 30%, enhancing grid stability and resilience.
+    <h2 style="color: #1E5C8E; margin-bottom: 0.75rem;">Here's what we personally gain</h2>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+            Efficiency upgrades also deliver big savings. Better insulation, smarter heating, and efficient appliances reduce electricity and gas use lowering bills by hundreds of dollars each year.
+            <br><br>
+            A bar chart shows household energy and cost savings by home type. 
+            <br><br>
+            Both all-electric and gas-heated homes benefit, especially older ones. These improvements make homes healthier, more comfortable, and more affordable.
         </p>
     </div>
     """, unsafe_allow_html=True)
+
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+    <img src="data:image/png;base64,{ee_what_if_base64}" 
+             style="width: 50%; height: auto; border-radius: 10px;" 
+             alt="What-if analysis of energy efficiency improvements">
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+        <img src="data:image/png;base64,{ee_savings_base64}" 
+             style="width: 90%; height: auto; border-radius: 10px;" 
+             alt="Household energy and cost savings by home type">
+    </div>
+    """, unsafe_allow_html=True)    
     
-    # Create 2 sub-columns for the pie charts
-    subcol1, subcol2 = st.columns(2)
     
-    with subcol1:
-        # Display the contributors to grid stress pie chart
-        st.image(ee_pie_contribution_stress_img, use_column_width=True, caption="")
-    
-    with subcol2:
-        # Display the grid stress reduction pie chart
-        st.image(ee_pie_stress_reduction_img, use_column_width=True, caption="")
