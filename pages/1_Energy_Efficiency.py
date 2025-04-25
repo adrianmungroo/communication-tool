@@ -39,12 +39,12 @@ show_wip_warning()
 from PIL import Image
 
 # Image Paths
-ee_house_path = r"assets\ee_house.png"
-ee_envelope_eui_path = r"assets\ee_envelope_eui.png"
-ee_seasonal_energy_use_path = r"assets\ee_seasonal_energy_use.png"
-ee_annual_energy_use_path = r"assets\ee_annual_energy_use.png"
-ee_what_if_path = r"assets\ee_what_if.png"
-ee_savings_path = r"assets\ee_savings.png"
+ee_house_path = r"assets/ee_house.png"
+ee_envelope_eui_path = r"assets/ee_envelope_eui.png"
+ee_seasonal_energy_use_path = r"assets/ee_seasonal_energy_use.png"
+ee_annual_energy_use_path = r"assets/ee_annual_energy_use.png"
+ee_what_if_path = r"assets/ee_what_if.png"
+ee_savings_path = r"assets/ee_savings.png"
 
 # Load the images as bytes and convert to base64
 with open(ee_house_path, "rb") as f:
