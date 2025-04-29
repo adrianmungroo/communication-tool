@@ -33,6 +33,7 @@ supply_path = os.path.join(os.getcwd(), "assets", "supply_area.png")
 demand_path = os.path.join(os.getcwd(), "assets", "demand_area.png")
 how_it_is_changing_path = os.path.join(os.getcwd(), "assets", "defining_atlanta_how_changing.png")
 looking_forward_path = os.path.join(os.getcwd(), "assets", "defining_atlanta_looking_forward.png")
+grid_structure_path = os.path.join(os.getcwd(), "assets", "grid_structure.png")
 
 # Read the image files as bytes and convert to base64
 with open(energydef_path, "rb") as f:
@@ -54,6 +55,10 @@ how_it_is_changing_base64 = base64.b64encode(how_it_is_changing_bytes).decode()
 with open(looking_forward_path, "rb") as f:
     looking_forward_bytes = f.read()
 looking_forward_base64 = base64.b64encode(looking_forward_bytes).decode()
+
+with open(grid_structure_path, "rb") as f:
+    grid_structure_bytes = f.read()
+grid_structure_base64 = base64.b64encode(grid_structure_bytes).decode()
 
 # Create two columns for the main content
 col1, col2 = st.columns([1, 2])
@@ -81,7 +86,7 @@ with col1:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 20px;">
         <img src="data:image/png;base64,{energydef_base64}" 
-             style="width: 90%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
              alt="Energyshed Definition">
     </div>
     """, unsafe_allow_html=True)
@@ -108,7 +113,7 @@ with col2:
         st.markdown(f"""
         <div style="text-align: center;">
             <img src="data:image/png;base64,{supply_base64}" 
-                 style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+                 style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
                  alt="Supply Area">
             <p style="text-align: center; margin-top: 10px; font-weight: bold;">Balancing Authority of Energy Supply and Demand</p>
         </div>
@@ -119,13 +124,42 @@ with col2:
         st.markdown(f"""
         <div style="text-align: center;">
             <img src="data:image/png;base64,{demand_base64}" 
-                 style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+                 style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
                  alt="Demand Area">
             <p style="text-align: center; margin-top: 10px; font-weight: bold;">High demand metro Atlanta area</p>
         </div>
         """, unsafe_allow_html=True)
 
-# Add a divider before the second part
+# Add a divider
+st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
+
+# Grid Structure Section
+image_col, text_col = st.columns([2, 1])
+
+with image_col:
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="data:image/png;base64,{grid_structure_base64}" 
+             style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             alt="Grid Structure">
+    </div>
+    """, unsafe_allow_html=True)
+
+with text_col:
+    st.markdown("""
+    <h2 style="color: #1E5C8E; margin-bottom: 0.75rem;">Power Grid Structure 
+</h2>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div style="background-color: rgba(240, 248, 255, 0.8); padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+        <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.6;">
+            The electricity grid flows from high-voltage generation & transmission lines to your home outlet via massive spiderweb distribution lines, with later segments experiencing more power losses than previous. Substation customers (e.g., Electric Membership Corporations) and primary customers (e.g., large factories) maintain their own distribution equipment and handle technical requirements on their own. Meanwhile, secondary customers like homes and small buildings, which can exist within an EMC's service area, receive complete end-to-end service (upkeep and repairs) from utilities, explaining why different customer types have different pricing models based on their infrastructure responsibilities.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Add a divider
 st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
 
 # How It's Changing section
@@ -136,7 +170,7 @@ with col1:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 20px;">
         <img src="data:image/png;base64,{how_it_is_changing_base64}" 
-             style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
              alt="How It's Changing">
     </div>
     """, unsafe_allow_html=True)
@@ -188,7 +222,7 @@ with col1:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 15px;">
         <img src="data:image/png;base64,{efficiency_base64}" 
-             style="width: 100%; height: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+             style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
              alt="Energy Efficiency Measures">
     </div>
     """, unsafe_allow_html=True)
@@ -215,7 +249,7 @@ with col2:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 15px;">
         <img src="data:image/png;base64,{local_gen_base64}" 
-             style="width: 100%; height: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+             style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
              alt="Local Generation and Storage">
     </div>
     """, unsafe_allow_html=True)
@@ -242,7 +276,7 @@ with col3:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 15px;">
         <img src="data:image/png;base64,{grid_base64}" 
-             style="width: 100%; height: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
+             style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" 
              alt="Electric Grid Impacts">
     </div>
     """, unsafe_allow_html=True)
@@ -269,7 +303,7 @@ with col1:
     st.markdown(f"""
     <div style="text-align: center; margin-top: 2rem;">
         <img src="data:image/png;base64,{looking_forward_base64}" 
-             style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             style="width: 90%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
              alt="Looking Forward">
     </div>
     """, unsafe_allow_html=True)
