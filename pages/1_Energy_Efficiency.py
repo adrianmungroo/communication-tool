@@ -196,7 +196,7 @@ with left_col:
     st.markdown(f"""
     <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
         <img src="data:image/png;base64,{ee_what_if_base64}" 
-             style="width: 50%; height: auto; border-radius: 10px;" 
+             style="width: 75%; height: auto; border-radius: 10px;" 
              alt="What if we changed?">
     </div>
     """, unsafe_allow_html=True)
