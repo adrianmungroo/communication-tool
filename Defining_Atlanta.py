@@ -4,6 +4,7 @@ import plotly.express as px
 import os
 from styles import load_css
 import base64
+from device_detection import detect_device
 
 # Set page config
 st.set_page_config(
@@ -24,6 +25,10 @@ st.session_state['current_page'] = __file__
 
 # Create the sidebar with the current page name
 create_sidebar(os.path.basename(__file__))
+
+# Display device information in a small, unobtrusive way
+device_info = detect_device()
+st.markdown(f"<div style='text-align: right; color: #666; font-size: 0.8rem; margin-bottom: 10px;'>You're viewing this page on a {device_info['device_type']} device running {device_info['os']}.</div>", unsafe_allow_html=True)
 
 ######################## PAGE CONTENT ########################
 
