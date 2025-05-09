@@ -4,7 +4,6 @@ import plotly.express as px
 import os
 from styles import load_css
 import base64
-from device_detection import detect_device
 
 # Set page config
 st.set_page_config(
@@ -25,10 +24,6 @@ st.session_state['current_page'] = __file__
 
 # Create the sidebar with the current page name
 create_sidebar(os.path.basename(__file__))
-
-# Display device information in a small, unobtrusive way
-device_info = detect_device()
-st.markdown(f"<div style='text-align: right; color: #666; font-size: 0.8rem; margin-bottom: 10px;'>You're viewing this page on a {device_info['device_type']} device running {device_info['os']}.</div>", unsafe_allow_html=True)
 
 ######################## PAGE CONTENT ########################
 
@@ -327,3 +322,22 @@ with col2:
         </p>
     </div>
     """, unsafe_allow_html=True)
+
+from streamlit_javascript import st_javascript
+from user_agents import parse
+
+# Get the raw User-Agent string from the browser
+ua_string = st_javascript("window.navigator.userAgent;")
+
+# Parse it
+user_agent = parse(ua_string)
+
+# Boolean flags you can use everywhere
+is_mobile  = user_agent.is_mobile
+is_tablet  = user_agent.is_tablet
+is_pc      = user_agent.is_pc
+
+if is_mobile:
+    st.write("👋 Hello, mobile user!")
+else:
+    st.write("👋 Hello, desktop user!")
