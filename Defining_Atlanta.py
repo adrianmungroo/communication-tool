@@ -327,7 +327,7 @@ from streamlit_javascript import st_javascript
 from user_agents import parse
 
 # Get the raw User-Agent string from the browser
-ua_string = st_javascript("window.navigator.userAgent;")
+ua_string = st_javascript("window.navigator.userAgent;", key="main_page_ua_detector")
 
 # Parse it only if we have a valid string
 if ua_string and isinstance(ua_string, str):
