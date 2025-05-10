@@ -322,27 +322,3 @@ with col2:
         </p>
     </div>
     """, unsafe_allow_html=True)
-
-from streamlit_javascript import st_javascript
-from user_agents import parse
-
-# Get the raw User-Agent string from the browser
-ua_string = st_javascript("window.navigator.userAgent;", key="main_page_ua_detector")
-
-# Parse it only if we have a valid string
-if ua_string and isinstance(ua_string, str):
-    user_agent = parse(ua_string)
-    # Boolean flags you can use everywhere
-    is_mobile = user_agent.is_mobile
-    is_tablet = user_agent.is_tablet
-    is_pc = user_agent.is_pc
-else:
-    # Default values if user agent can't be determined
-    is_mobile = False
-    is_tablet = False
-    is_pc = True  # Assume PC if we can't determine device type
-
-if is_mobile:
-    st.write("👋 Hello, mobile user!")
-else:
-    st.write("👋 Hello, desktop user!")
