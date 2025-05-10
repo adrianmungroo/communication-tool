@@ -7,7 +7,7 @@ import base64
 
 # Set page config
 st.set_page_config(
-    page_title="Atlanta Energyshed",
+    page_title="Energyshed",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="collapsed"  # Start with sidebar collapsed
@@ -64,9 +64,9 @@ grid_structure_base64 = base64.b64encode(grid_structure_bytes).decode()
 col1, col2 = st.columns([1, 2])
 
 with col1:
-    # Left column - Defining Atlanta's Energyshed
+    # Left column - Defining the Energyshed
     st.markdown("""
-    <h1 style="color: #1E5C8E; margin-bottom: 1.5rem;">Defining Atlanta's <br> Energyshed</h1>
+    <h1 style="color: #1E5C8E; margin-bottom: 1.5rem;">Defining <br> Energyshed</h1>
     """, unsafe_allow_html=True)
     
     st.markdown("""
@@ -329,13 +329,18 @@ from user_agents import parse
 # Get the raw User-Agent string from the browser
 ua_string = st_javascript("window.navigator.userAgent;")
 
-# Parse it
-user_agent = parse(ua_string)
-
-# Boolean flags you can use everywhere
-is_mobile  = user_agent.is_mobile
-is_tablet  = user_agent.is_tablet
-is_pc      = user_agent.is_pc
+# Parse it only if we have a valid string
+if ua_string and isinstance(ua_string, str):
+    user_agent = parse(ua_string)
+    # Boolean flags you can use everywhere
+    is_mobile = user_agent.is_mobile
+    is_tablet = user_agent.is_tablet
+    is_pc = user_agent.is_pc
+else:
+    # Default values if user agent can't be determined
+    is_mobile = False
+    is_tablet = False
+    is_pc = True  # Assume PC if we can't determine device type
 
 if is_mobile:
     st.write("👋 Hello, mobile user!")

@@ -13,7 +13,7 @@ def show_wip_warning():
 
 def create_sidebar(current_page=None):
     """
-    Creates a consistent sidebar for the Atlanta Energyshed application.
+    Creates a consistent sidebar for the Energyshed application.
     This function should be called from all pages to ensure a consistent navigation experience.
     
     Args:
@@ -31,9 +31,9 @@ def create_sidebar(current_page=None):
         # Navigation links with icons
         # Home page
         if current_page == "Defining_Atlanta.py":
-            st.markdown('<a href="." class="nav-link active" target="_self"><span class="nav-icon">🏠</span> Defining Atlanta</a>', unsafe_allow_html=True)
+            st.markdown('<a href="." class="nav-link active" target="_self"><span class="nav-icon">🏠</span> Defining Energyshed</a>', unsafe_allow_html=True)
         else:
-            st.markdown('<a href="." class="nav-link" target="_self"><span class="nav-icon">🏠</span> Defining Atlanta</a>', unsafe_allow_html=True)
+            st.markdown('<a href="." class="nav-link" target="_self"><span class="nav-icon">🏠</span> Defining Energyshed</a>', unsafe_allow_html=True)
         
         # Always show Energy Efficiency page
         if current_page == "1_Energy_Efficiency.py":
