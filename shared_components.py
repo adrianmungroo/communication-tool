@@ -4,11 +4,25 @@ import os
 def show_wip_warning():
     """
     Display a warning popup indicating that the page is a work in progress.
-    This should be called on all pages except the main Defining Atlanta page.
     """
-    st.warning(
-        "⚠️ **Work in Progress** ⚠️\n\n"
-        "#### This page is currently under development and not yet complete. "
+    # Apply custom CSS for larger font sizes
+    st.markdown(
+        """
+        <style>
+        .warning-message {
+            font-size: 35px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: hsl(54, 100%, 60%);
+            padding: 20px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+        </style>
+        <div class="warning-message">⚠️ Work in Progress ⚠️ <br> This page is under development.</div>
+        """, 
+        unsafe_allow_html=True
     )
 
 def create_sidebar(current_page=None):
