@@ -68,7 +68,7 @@ def load_css(page_name=None):
             height: 24px !important;
         }
         .nav-link:hover {
-            background-color: #e0e0e0;
+            background-color: hsl(208, 79%, 80%);
         }
         .nav-link.active {
             background-color: #1E88E5;
@@ -89,16 +89,16 @@ def load_css(page_name=None):
             color: #1E88E5 !important;
             text-align: center !important;
             font-weight: 600 !important;
-            margin-bottom: 1.5rem !important;
+            margin-bottom: 1rem !important;
         }
         /* Add a subtle underline to headers */
         h1::after, h2::after, h3::after {
             content: "";
             display: block;
-            width: 100px;
+            width: 150px;
             height: 2px;
             background-color: #1E88E5;
-            margin: 0.5rem auto;
+            margin: 0.2rem auto;
         }
         /* Hide default sidebar navigation */
         [data-testid="stSidebarNav"] {display: none !important;}
