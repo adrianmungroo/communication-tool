@@ -59,30 +59,6 @@ with open(temp_ss2, "rb") as f:
 
 # actual page content
 
-st.markdown("""
-<h2 style="color: #1E5C8E; padding-top: 2rem; margin-top: 0.5rem;">Supply Stack <br> (Balancing authority: SOCO)</h2>
-""", unsafe_allow_html=True)
-
-# image
-st.markdown(f"""
-<div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
-    <img src="data:image/png;base64,{temp_ss1_base64}" 
-            style="width: 90%; height: auto; border-radius: 10px;" 
-            alt="Energy efficient home with sustainable features">
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown(f"""
-<div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
-    <img src="data:image/png;base64,{temp_ss2_base64}" 
-            style="width: 90%; height: auto; border-radius: 10px;" 
-            alt="Energy efficient home with sustainable features">
-</div>
-""", unsafe_allow_html=True)
-    
-# break
-st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
-
 # title
 st.markdown("""
 <h2 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem;">Grid Edge Model Expansion</h2>
@@ -202,7 +178,6 @@ with right:
             unsafe_allow_html=True
         )
 
-st.divider()
 st.markdown("""
 ##### Our tool aims to capture and measure the following metrics for each scenario:
 """)
@@ -223,3 +198,29 @@ c2.markdown("""
 - Energy Equity for Underserved Communities
 - Jobs and Workforce Development                                    
 """)
+
+# supply stack content
+st.divider()
+st.markdown("""
+<h2 style="color: #1E5C8E; padding-top: 2rem; margin-top: 0.5rem;">Supply Stack <br> (Balancing authority: SOCO)</h2>
+""", unsafe_allow_html=True)
+
+# image
+st.markdown(f"""
+<div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+    <img src="data:image/png;base64,{temp_ss1_base64}" 
+            style="width: 90%; height: auto; border-radius: 10px;" 
+            alt="Energy efficient home with sustainable features">
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown(f"""
+<div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+    <img src="data:image/png;base64,{temp_ss2_base64}" 
+            style="width: 90%; height: auto; border-radius: 10px;" 
+            alt="Energy efficient home with sustainable features">
+</div>
+""", unsafe_allow_html=True)
+    
+# break
+st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
