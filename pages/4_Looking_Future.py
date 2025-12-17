@@ -30,7 +30,7 @@ st.session_state['current_page'] = __file__
 create_sidebar(os.path.basename(__file__))
 
 # Show work-in-progress warning
-show_wip_warning()
+# show_wip_warning()
 
 ######################## PAGE CONTENT ########################
 
@@ -91,18 +91,38 @@ st.markdown("""
 st.markdown("""
     <div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
         <p style="font-size: 1.2rem; color: #2c3e50; line-height: 1.5; margin: 0;">
-            The following images show peak hours, emphasizing the differences between the two scenarios.
+            The initial analyses have expanded to include all 11 counties within the Atlanta Metropolitan Area.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-# image
+# images
+st.markdown("""
+<h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; font-size: 3rem; margin-bottom: 1rem;">Residential Comparison: Baseline vs. Heatpump Retrofit</h4>
+""", unsafe_allow_html=True)
 st.markdown(f"""
 <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
-    <img src="data:image/png;base64,{temp_agem_base64}" 
-            style="width: 90%; height: auto; border-radius: 10px;" 
+    <img src="https://i.imgur.com/qJpCqbP.gif" 
+            style="width: 60%; height: auto; border-radius: 10px;" 
             alt="Energy efficient home with sustainable features">
 </div>
 """, unsafe_allow_html=True)
 
     
+st.markdown("""
+<h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; font-size: 3rem; margin-bottom: 1rem;">Commercial Comparison: Baseline vs. Heatpump Retrofit</h4>
+""", unsafe_allow_html=True)
+st.markdown(f"""
+<div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+    <img src="https://i.imgur.com/3XtFCgq.gif" 
+            style="width: 60%; height: auto; border-radius: 10px;" 
+            alt="Energy efficient home with sustainable features">
+</div>
+""", unsafe_allow_html=True)
+st.markdown(f"""
+<div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+    <img src="https://i.imgur.com/7D9aWnT.gif" 
+            style="width: 60%; height: auto; border-radius: 10px;" 
+            alt="Energy efficient home with sustainable features">
+</div>
+""", unsafe_allow_html=True)
