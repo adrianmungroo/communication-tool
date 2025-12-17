@@ -224,5 +224,25 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
     
-# break
-st.markdown("<hr style='margin: 3rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
+# divide
+st.divider()
+st.markdown("""
+##### Our tool aims to capture and measure the following metrics for each scenario:
+""")
+
+c1,c2 = st.columns(2)
+
+c1.markdown("""
+##### Infrastructure Focused Studies
+- GHG Emissions
+- Utility Electricity Cost
+- Electrical System Reliability
+- Value of Resilience                                    
+""")
+
+c2.markdown("""
+##### EEEJ Focused Studies
+- Consumer Electrical Cost
+- Energy Equity for Underserved Communities
+- Jobs and Workforce Development                                    
+""")
