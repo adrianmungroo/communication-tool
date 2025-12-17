@@ -246,3 +246,65 @@ c2.markdown("""
 - Energy Equity for Underserved Communities
 - Jobs and Workforce Development                                    
 """)
+
+# break
+st.divider()
+
+st.title("Disaggregation into Generic Geometries")
+
+# --- Disaggregation into Generic Geometries (Dasymetric / AOI downscaling) ---
+
+st.markdown("""
+<div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
+  <p style="font-size: 1.1rem; color: #2c3e50; line-height: 1.6; margin: 0;">
+    Sometimes users only have a <b>generic area of interest (AOI)</b> (e.g., a city boundary or neighborhood polygon),
+    but the model’s native output is <b>coarser</b> than what they need for interpretation.
+    <br><br>
+    We can produce a <b>higher-resolution view</b> by <b>dasymetric downscaling</b>:
+    redistribute each coarse cell’s value into smaller cells using a correlated high-resolution variable
+    (e.g., <b>building density</b>) while preserving the original totals.
+  </p>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("<br>", unsafe_allow_html=True)
+
+c1, c2, c3 = st.columns([1.2, 1.2, 1.6])
+
+with c1:
+    st.markdown("###### 1) User supplies AOI")
+    st.markdown("- Upload/choose a polygon AOI (shapefile/geojson)\n- Tool clips to relevant parents")
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+        <img src="https://i.imgur.com/Ez3IdQq.png" width="60%">
+    </div>
+    """, unsafe_allow_html=True)
+
+with c2:
+    st.markdown("###### 2) Coarse model output")
+    st.markdown("- Model runs on H3 parents (e.g., res 8)\n- Values are correct but spatially coarse")
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+        <img src="https://i.imgur.com/Sf9dVCj.png" width="60%">
+    </div>
+    """, unsafe_allow_html=True)
+
+with c3:
+    st.markdown("###### 3) Dasymetric redistribution")
+    st.markdown("- Generate all children (e.g., res 10)\n- Weight by building counts (or other proxy)\n- **Parent totals conserved by construction**")
+    st.markdown(f"""
+    <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+        <img src="https://i.imgur.com/VrQCj6I.png" width="60%">
+    </div>
+    """, unsafe_allow_html=True)
+
+with st.expander("What this is (and is not)"):
+    st.markdown("""
+- ✅ Produces a *higher-resolution allocation* consistent with the parent totals  
+- ✅ Useful for visualization and AOI-specific reporting  
+- ⚠️ Not “new measurements” at fine scale — it’s a principled redistribution  
+- 🔁 We can swap the weighting layer (buildings, population, land-use, etc.)
+""")
+
+st.markdown("<hr style='margin: 2rem 0; border-top: 2px solid #e0e0e0;'>", unsafe_allow_html=True)
+
