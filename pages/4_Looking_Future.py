@@ -178,26 +178,26 @@ with right:
             unsafe_allow_html=True
         )
 
+#image
 st.markdown("""
-##### Our tool aims to capture and measure the following metrics for each scenario:
-""")
+<h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; font-size: 3rem; margin-bottom: 1rem;">Comparison how Solar impacts Energy Usage</h4>
+""", unsafe_allow_html=True)
 
-c1,c2 = st.columns(2)
-
-c1.markdown("""
-##### Infrastructure Focused Studies
-- GHG Emissions
-- Utility Electricity Cost
-- Electrical System Reliability
-- Value of Resilience                                    
-""")
-
-c2.markdown("""
-##### EEEJ Focused Studies
-- Consumer Electrical Cost
-- Energy Equity for Underserved Communities
-- Jobs and Workforce Development                                    
-""")
+#text
+st.markdown("""
+<div style="background-color: rgba(240, 248, 255, 0.8); padding: 15px; border-radius: 5px;">
+    <p style="font-size: 1.2rem; color: #2c3e50; line-height: 1.5; margin: 0;">
+        <b>Left:</b> Current Energy Usage
+        <br><br>
+        <b>Right:</b> Post Solar+Battery Incentives for Residential Single Family Homes
+    </p>
+</div>
+""", unsafe_allow_html=True)
+st.markdown(f"""
+<div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
+    <img src="https://i.imgur.com/IGZtDZV.gif" width="60%">
+</div>
+""", unsafe_allow_html=True)
 
 # supply stack content
 st.divider()
