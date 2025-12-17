@@ -61,7 +61,7 @@ with open(temp_ss2, "rb") as f:
 
 # title
 st.markdown("""
-<h2 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem;">Grid Edge Model Expansion</h2>
+<h1 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem;">Grid Edge Model Expansion</h1>
 """, unsafe_allow_html=True)
 
 st.markdown("""
@@ -73,8 +73,9 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # images
+st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("""
-<h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; font-size: 3rem; margin-bottom: 1rem;">Residential Comparison: Baseline vs. Heatpump Retrofit</h4>
+<h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; margin-bottom: 1rem;">Residential Comparison: Baseline vs. Heatpump Retrofit</h4>
 """, unsafe_allow_html=True)
 st.markdown(f"""
 <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
@@ -85,8 +86,9 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
     
+st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("""
-<h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; font-size: 3rem; margin-bottom: 1rem;">Commercial Comparison: Baseline vs. Heatpump Retrofit</h4>
+<h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; margin-bottom: 1rem;">Commercial Comparison: Baseline vs. Heatpump Retrofit</h4>
 """, unsafe_allow_html=True)
 st.markdown(f"""
 <div style="text-align: center; margin-bottom: 15px; margin-top: 15px;">
@@ -179,9 +181,7 @@ with right:
         )
 
 st.divider()
-st.markdown("""
-<h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; font-size: 3rem; margin-bottom: 1rem;">Comparison how Solar impacts Energy Usage</h4>
-""", unsafe_allow_html=True)
+st.title("Comparison how Solar impacts Energy Usage")
 
 #text
 st.markdown("""
