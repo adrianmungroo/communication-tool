@@ -178,7 +178,7 @@ with right:
             unsafe_allow_html=True
         )
 
-#image
+st.divider()
 st.markdown("""
 <h4 style="color: #1E5C8E; padding-top: 0rem; margin-top: 0.5rem; text-align: left; font-size: 3rem; margin-bottom: 1rem;">Comparison how Solar impacts Energy Usage</h4>
 """, unsafe_allow_html=True)
