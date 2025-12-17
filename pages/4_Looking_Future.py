@@ -190,6 +190,8 @@ st.markdown("""
         <b>Left:</b> Current Energy Usage
         <br><br>
         <b>Right:</b> Post Solar+Battery Incentives for Residential Single Family Homes
+        <br><br>
+        <b>Residential peaks are softened via solar+battery incentives.</b>
     </p>
 </div>
 """, unsafe_allow_html=True)
